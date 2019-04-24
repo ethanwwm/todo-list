@@ -1,0 +1,25 @@
+body {
+	font-family: 'Bitter', serif;
+	width: 300px;
+	position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -200px;
+
+}
+
+p.smallerSpacing {
+	line-height: 0.7;
+}
+
+#title {
+	line-height: 0.7;
+}
+
+.deleteButtonClass {
+	background-color: transparent;
+    border: 0px solid;
+    color: black;
+    float: right;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>To-Do List</title>
+	<link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1 id = "title">TO-DO LIST</h1>
+
+	<p class = "smallerSpacing">
+		What would you like to do today?<br>
+		________________________________
+	</p>
+	
+	<ol id = "TodoList">
+	</ol>
+
+	<input type="text" id = "textbox" name="newTodoItem" placeholder="Enter your new to-do here"> <br>
+	
+	<script type="text/javascript">
+		var uniqueClass = 1;
+
+		var TodoList = document.getElementById("TodoList");
+		var textbox = document.getElementById('textbox');
+
+		function addNewTodo(){
+			//Code for delete button
+			var deleteButton = document.createElement('input');
+			deleteButton.type = "button";
+			deleteButton.value = "×";
+			deleteButton.setAttribute("onclick", "deleteTextbox(" + uniqueClass + ")");
+			deleteButton.setAttribute("class", "deleteButtonClass");
+
+			//Code for new list item
+			var newTodoPoint  = document.createElement('li');
+			var textNode = document.createTextNode(textbox.value);
+			newTodoPoint.appendChild(textNode);
+			newTodoPoint.appendChild(deleteButton);
+			newTodoPoint.id = uniqueClass;
+
+			document.getElementById("TodoList").appendChild(newTodoPoint);
+			textbox.value = "";
+
+			uniqueClass++;
+		}
+
+		function deleteTextbox(elementId){
+			var element = document.getElementById(elementId);
+    		element.parentNode.removeChild(element);
+		}
+
+		textbox.addEventListener("keyup", function(e){
+			if(e.keyCode === 13){
+				addNewTodo();
+			}
+		})
+	</script>
+</body>
+</html>
